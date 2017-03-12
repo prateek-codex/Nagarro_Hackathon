@@ -1,5 +1,5 @@
 ﻿// app.js
-(function (app, $) {
+(function(app, $) {
 
   // Initialization
   function init() {
@@ -8,7 +8,7 @@
     if (window.about) about.init();
     if (window.router) router.init();
 
-    $(".back-button").on("click", function () {
+    $(".back-button").on("click", function() {
       window.history.go(-1);
       return false;
     });
