@@ -10,9 +10,16 @@ namespace ECommercePortal.Controllers
     public class ProductController : ApiController
     {
         // GET: api/Product
-        public IEnumerable<string> Get()
+        public IEnumerable<Product> Get()
         {
-            return new string[] { "Product1", "Product2" };
+            IList<Product> productList = null;
+
+            using(var dbContext = new FlickCartEntities())
+            {
+                productList = dbContext.Products.ToList();
+            }
+
+            return productList;
         }
 
         // GET: api/Product/5
