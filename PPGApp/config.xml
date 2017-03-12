@@ -3,7 +3,7 @@
         xmlns:gap="http://phonegap.com/ns/1.0"
         id="com.wilderminds.samplephonegap"
         version="1.0.0">
-  <name>Sample Phone Gap</name>
+  <name>FlickCart</name>
 
   <description>
     This is an example phone gap project.
