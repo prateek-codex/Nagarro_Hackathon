@@ -16,6 +16,7 @@ namespace LastMileConnectivity
         // GET: api/Driver
         public IEnumerable<Location> Get()
         {
+            new BookingsDAC().GetDBConnection();
             return new List<Location>() {
                      new Location() {
                          LocationName = "MG Road",
