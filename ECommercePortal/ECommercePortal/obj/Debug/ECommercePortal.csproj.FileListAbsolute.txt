@@ -12,21 +12,3 @@ c:\users\prateekvarshney\documents\visual studio 2013\Projects\ECommercePortal\E
 c:\users\prateekvarshney\documents\visual studio 2013\Projects\ECommercePortal\ECommercePortal\bin\System.Web.Http.WebHost.xml
 c:\users\prateekvarshney\documents\visual studio 2013\Projects\ECommercePortal\ECommercePortal\obj\Debug\ECommercePortal.dll
 c:\users\prateekvarshney\documents\visual studio 2013\Projects\ECommercePortal\ECommercePortal\obj\Debug\ECommercePortal.pdb
-E:\Hackathon\Nagarro_Hackathon\ECommercePortal\ECommercePortal\bin\ECommercePortal.dll.config
-E:\Hackathon\Nagarro_Hackathon\ECommercePortal\ECommercePortal\bin\ECommercePortal.dll
-E:\Hackathon\Nagarro_Hackathon\ECommercePortal\ECommercePortal\bin\ECommercePortal.pdb
-E:\Hackathon\Nagarro_Hackathon\ECommercePortal\ECommercePortal\bin\EntityFramework.dll
-E:\Hackathon\Nagarro_Hackathon\ECommercePortal\ECommercePortal\bin\EntityFramework.SqlServer.dll
-E:\Hackathon\Nagarro_Hackathon\ECommercePortal\ECommercePortal\bin\Newtonsoft.Json.dll
-E:\Hackathon\Nagarro_Hackathon\ECommercePortal\ECommercePortal\bin\System.Net.Http.Formatting.dll
-E:\Hackathon\Nagarro_Hackathon\ECommercePortal\ECommercePortal\bin\System.Web.Http.dll
-E:\Hackathon\Nagarro_Hackathon\ECommercePortal\ECommercePortal\bin\System.Web.Http.WebHost.dll
-E:\Hackathon\Nagarro_Hackathon\ECommercePortal\ECommercePortal\bin\EntityFramework.xml
-E:\Hackathon\Nagarro_Hackathon\ECommercePortal\ECommercePortal\bin\EntityFramework.SqlServer.xml
-E:\Hackathon\Nagarro_Hackathon\ECommercePortal\ECommercePortal\bin\Newtonsoft.Json.xml
-E:\Hackathon\Nagarro_Hackathon\ECommercePortal\ECommercePortal\bin\System.Net.Http.Formatting.xml
-E:\Hackathon\Nagarro_Hackathon\ECommercePortal\ECommercePortal\bin\System.Web.Http.xml
-E:\Hackathon\Nagarro_Hackathon\ECommercePortal\ECommercePortal\bin\System.Web.Http.WebHost.xml
-E:\Hackathon\Nagarro_Hackathon\ECommercePortal\ECommercePortal\obj\Debug\ECommercePortal.csprojResolveAssemblyReference.cache
-E:\Hackathon\Nagarro_Hackathon\ECommercePortal\ECommercePortal\obj\Debug\ECommercePortal.dll
-E:\Hackathon\Nagarro_Hackathon\ECommercePortal\ECommercePortal\obj\Debug\ECommercePortal.pdb

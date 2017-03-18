@@ -2,12 +2,8 @@
 mainApp.ProductModel = Backbone.Model.extend({
     // you can set any defaults you would like here
     defaults: {
-        Name: "",
-        Description: "",
-        Price: "",
-        Manufacturer: "",
-        // just setting random number for id would set as primary key from server
-        Id: _.random(0, 10000)
+        LocationId: "",
+        LocationName: ""
     },
 
     validate: function(attrs) {
@@ -20,16 +16,15 @@ mainApp.ProductModel = Backbone.Model.extend({
     }
 });
 
-mainApp.ProductCollection = Backbone.Collection.extend({
+mainApp.LocationCollection = Backbone.Collection.extend({
     // Reference to this collection's model.
-    url: AppConstants.apiUrl + "Product",
-    // model: mainApp.ProductModel,
+    url: AppConstants.apiUrl + "Driver",
     parse: function(data) {
-        var productList = [];
+        var locationList = [];
         var id = 1;
         data.forEach(function(val){
-            productList.push({Name: val, Id: id++});
+            locationList.push({LocationName: val.LocationName });//, LocationId: val.LocationId});
         });
-        return productList;
+        return locationList;
     }
 });

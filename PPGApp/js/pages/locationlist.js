@@ -1,22 +1,17 @@
 "use strict";
 
-mainApp.ProductIndexView = Backbone.View.extend({
+mainApp.LocationIndexView = Backbone.View.extend({
 
-    template: _.template($('#indexTemplate').html()),
+    template: _.template($('#locationIndex').html()),
 
     // populate the html to the dom
     render: function() {
-        
         var self = this;
-
-        this.collection.fetch().done(function(data){
-            console.log(data);
-        });
        
         this.collection.fetch().done(function(data) {
             self.$el.html(
                 self.template({
-                    products: data
+                    locationList: data
                 })
             )
         });	
