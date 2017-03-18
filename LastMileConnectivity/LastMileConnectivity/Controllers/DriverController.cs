@@ -16,7 +16,6 @@ namespace LastMileConnectivity
         // GET: api/Driver
         public IEnumerable<Location> Get()
         {
-            //new BookingsDAC().GetDBConnection();
             return null;
         }
 
@@ -71,6 +70,7 @@ namespace LastMileConnectivity
         // POST: api/Driver
         public List<Location> Post([FromBody]LocationPoint value)
         {
+            //new BookingsDAC().GetNearByUsers(value);
             return new List<Location>() {
                      new Location() {
                          LocationName = "MG Road",
