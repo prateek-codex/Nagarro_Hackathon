@@ -9,11 +9,10 @@ namespace ECommercePortal
     public class Location
     {
         public string LocationName { get; set; }
-
-        public List<User> Users { get; set; }
+        public string LocationId { get; set; }
     }
 
-    public class User
+    public class Booking
     {
         [DataMember]
         public string UserId { get; set; }
