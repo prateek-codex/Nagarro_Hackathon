@@ -116,5 +116,6 @@
   <gap:splash src="img/splash/ios/splash_768x1024.png"
               width="768"
               height="1024" />
-
+      
+      <access origin="*"/>
 </widget>
