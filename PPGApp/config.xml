@@ -37,11 +37,16 @@
   <!-- Don't Suspend -->
   <preference name="exit-on-suspend"
               value="false" />
+              
+  <preference name="permissions" value="INTERNET" />
 
   <!-- Features (e.g. Permissions) -->
   <feature name="http://api.phonegap.com/1.0/network" />
   <feature name="http://api.phonegap.com/1.0/notification" />
   <feature name="http://api.phonegap.com/1.0/geolocation" />
+  <feature name="Geolocation">
+    <param name="android-package" value="org.apache.cordova.GeoBroker" />
+</feature>
   
   <!-- Icons -->
   <icon src="icon.png" />
