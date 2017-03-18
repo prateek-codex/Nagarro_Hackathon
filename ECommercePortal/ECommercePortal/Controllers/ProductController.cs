@@ -23,9 +23,15 @@ namespace ECommercePortal.Controllers
         }
 
         // GET: api/Product/5
-        public string Get(int id)
+        public Product Get(int id)
         {
-            return "value";
+            Product product = null;
+            using (var dbContext = new FlickCartEntities())
+            {
+                product = dbContext.Products.Find(id);
+            }
+
+            return product;
         }
 
         // POST: api/Product
