@@ -34,7 +34,7 @@ mainApp.LocationIndexView = Backbone.View.extend({
             });
         }
 
-        getLocation(GetUserBookings);
+        navigator.getLocation(GetUserBookings);
 
         // $.get(AppConstants.apiUrl + "Driver/" + this.locationId, 
         // });
