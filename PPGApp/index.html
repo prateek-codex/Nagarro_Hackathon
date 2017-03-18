@@ -1,91 +1,121 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FlickCart</title>
-  <link href="css/lib/bootstrap.css" rel="stylesheet" />
-  <link href="css/app.css" rel="stylesheet" />
-  <link href="css/app.responsive.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FlickCart</title>
+    <link href="css/lib/bootstrap.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="css/app.responsive.css" rel="stylesheet" />
+    <link href="css/lib/font-awesome.min.css" rel="stylesheet" />
 </head>
 
 
 <body>
-  
-	<div class="container">
-    <div class="row" style="margin-top:20px">
-      <div class="col-md-4" style="display:inline">
-        <img class="img-responsive logo" src="./img/jangid.jpg" alt="Jangid Motors" style="height:60px">
-      </div>
-      <div class="col-md-8 text-right">
-        <h1 class="heading">Jangid Motors</h1>
-        <h3>Last Mile connectivety</h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <hr class="horizontalRule" />
-      </div>
+
+    <div class="container">
+        <div class="row" style="margin-top:20px">
+            <div class="col-md-4" style="display:inline">
+                <img class="img-responsive logo" src="./img/jangid.jpg" alt="Jangid Motors" style="height:60px">
+            </div>
+            <div class="col-md-8 text-right">
+                <h1 class="heading">Jangid Motors</h1>
+                <h3>Last Mile connectivety</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <hr class="horizontalRule" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" col-md-12" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <div class="row">
-      <div class=" col-md-12" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </div>
+    <div class="container" id="primary-content">
+        <!-- the container that gets populated with the rendered templates -->
     </div>
-</div>
 
-  <div class="container" id="primary-content">
-    <!-- the container that gets populated with the rendered templates -->
-  </div>
-  
-      <script type="text/template" id="locationIndex">
+    <!--Location View-->
+    <script type="text/template" id="locationIndex">
         <div class="col-md-12" id="divTable" style="overflow:auto">
-          <% if (_.isEmpty(locationList)){ %>
+            <% if (_.isEmpty(locationList)){ %>
             <div class="alert alert-warning">
-              <p>There are currently no bookings. Try creating some (through admin menu).</p>
+                <p>There are currently no bookings. Try creating some (through admin menu).</p>
             </div>
             <% } %>
 
-              <% _.each(locationList, function (location) { %>
+            <% _.each(locationList, function (location) { %>
+            <div class="form-group row">
+                <div class="jumbotron">
+                    <a href="#users/:<%= location.LocationId %>" locationName="<%= location.LocationName %>">
+                        <label class="col-form-label" style="font-size:1.7em"><b> <%= location.LocationName %></b></label>
+                    </a>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </script>
+
+    <!--Users View-->
+    <script type="text/template" id="usersView">
+        <% if (_.isEmpty(userList)){ %>
+        <div class="alert alert-warning">
+            <p>There are currently no users in this location.</p>
+        </div>
+        <% } %>
+
+        <div class="col-md-12" id="divTable" style="overflow:auto">
+            <div class="jumbotron">
+                <h1 id="locationHeading"><%= locName %></h1>
+                <% _.each(userList, function (user) { %>
                 <div class="form-group row">
-                  <div class="jumbotron">
-                    <label class="col-form-label" style="font-size:1.7em"><b> <%= location.LocationName %></b></label>
-                  </div>
+                    <div class="well-sm">
+                        <i class="fa fa-phone fa-lg"></i><a style="padding-left: 5px;" href="tel:<%= user.PhoneNumber %>">
+                            <label class="col-form-label" style="font-size:1.7em"><b> <%= user.MaskedPhoneNumber %></b></label>
+                        </a>
+                    </div>
                 </div>
                 <% }); %>
+            </div>
         </div>
-      </script>
-<div class ="container">
-      <div class="col-md-12 ">
-        <img class="img-responsive logo" src="./img/FingurePrint.jpg" alt="Jangid Motors" style="height:220px">
-      </div>
-</div>
+    </script>
 
-  <!--Libray Files-->
-  <script src="js/lib/jquery-3.1.1.min.js"></script>
-  <script src="js/lib/tether.min.js"></script>
-  <script src="js/lib/underscore-min.js"></script>
-  <script src="js/lib/bootstrap.js"></script>
-  <script src="js/lib/backbone-min.js"></script>
-  <script src="phonegap.js"></script>
+    <div class="container">
+        <div class="col-md-12 ">
+            <img class="img-responsive logo" src="./img/FingurePrint.jpg" alt="Jangid Motors" style="height:220px">
+        </div>
+    </div>
 
-  <!--Code Files-->
-  <script src="js/app.js"></script>
-  <script src="js/shared/constants.js"></script>
-  <script src="js/shared/router.js"></script>
-  <script src="js/shared/helper.js"></script>
-  <script src="js/models/location-model.js"></script>
-  <script src="js/pages/locationlist.js"></script>
+    <!--Libray Files-->
+    <script src="js/lib/jquery-3.1.1.min.js"></script>
+    <script src="js/lib/tether.min.js"></script>
+    <script src="js/lib/underscore-min.js"></script>
+    <script src="js/lib/bootstrap.js"></script>
+    <script src="js/lib/backbone-min.js"></script>
+    <script src="phonegap.js"></script>
+
+    <!--Code Files-->
+    <script src="js/app.js"></script>
+    <script src="js/shared/constants.js"></script>
+    <script src="js/shared/router.js"></script>
+    <script src="js/shared/helper.js"></script>
+    <script src="js/models/location-model.js"></script>
+    <script src="js/pages/locationlist.js"></script>
+    <script src="js/pages/usersView.js"></script>
 </body>
 
 <script>
-  var app = new mainApp.LocationRouter();
+    var app = new mainApp.LocationRouter();
 </script>
 
 </html>
