@@ -1,4 +1,4 @@
 var AppConstants = {
-    apiUrl: "http://lastmileconnectivity.azurewebsites.net/api/",
+    apiUrl: "http://localhost:53197/api/",
     geoLocationApiKey: "AIzaSyAD0LoEKBWSsMkmHIHtXhfET8NgZDGVNoA"
 }
