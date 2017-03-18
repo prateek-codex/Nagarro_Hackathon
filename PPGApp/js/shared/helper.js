@@ -22,6 +22,7 @@
 }());
 
         function getLocation(callback) {
+          alert("Geolocation called");
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(callback);
             } else {
