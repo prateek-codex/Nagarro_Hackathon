@@ -19,7 +19,7 @@ mainApp.ProductIndexView = Backbone.View.extend({
                     products: data
                 })
             )
-        });
+        });	
     
         return this;
     }
