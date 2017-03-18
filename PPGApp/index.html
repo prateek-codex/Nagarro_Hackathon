@@ -78,6 +78,10 @@
       </form>
     </div>
   </script>-->
+  
+  <div  style="min-height=400px;" class="container">
+    <div id="map" style="height=100%"></div>
+  </div>
 
   <!-- the index container -->
   <script type="text/template" id="indexTemplate">
@@ -134,5 +138,26 @@
 <script>
   var app = new mainApp.ProductRouter();
 </script>
+
+<script>
+
+      function initMap() {
+        var myLatLng = {lat: -25.363, lng: 131.044};
+        debugger;
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+</script>=
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAD0LoEKBWSsMkmHIHtXhfET8NgZDGVNoA&callback=initMap">
+    </script>
 
 </html>
