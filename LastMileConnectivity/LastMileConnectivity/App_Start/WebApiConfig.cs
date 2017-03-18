@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace ECommercePortal
+namespace LastMileConnectivity
 {
     public static class WebApiConfig
     {

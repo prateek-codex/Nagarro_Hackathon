@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace ECommercePortal
+namespace LastMileConnectivity
 {
     public class DriverController : ApiController
     {

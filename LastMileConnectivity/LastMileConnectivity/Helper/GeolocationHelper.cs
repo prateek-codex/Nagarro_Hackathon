@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ECommercePortal.Helper
+namespace LastMileConnectivity.Helper
 {
     public class GeolocationHelper
     {

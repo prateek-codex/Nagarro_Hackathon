@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ECommercePortal</RootNamespace>
-    <AssemblyName>ECommercePortal</AssemblyName>
+    <RootNamespace>LastMileConnectivity</RootNamespace>
+    <AssemblyName>LastMileConnectivity</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -85,16 +85,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FlickCartModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FlickCartModel.edmx</DependentUpon>
-      <LastGenOutput>FlickCartModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="FlickCartModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FlickCartModel.edmx</DependentUpon>
-      <LastGenOutput>FlickCartModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -103,42 +93,17 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DriverController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="FlickCartModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FlickCartModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FlickCartModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FlickCartModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FlickCartModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FlickCartModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\GeolocationHelper.cs" />
     <Compile Include="Models\Location.cs" />
-    <Compile Include="Product.cs">
-      <DependentUpon>FlickCartModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <EntityDeploy Include="FlickCartModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FlickCartModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="FlickCartModel.edmx.diagram">
-      <DependentUpon>FlickCartModel.edmx</DependentUpon>
-    </Content>
-    <None Include="Properties\PublishProfiles\ECommercePortal - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\LastMileConnectivity - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\LastMileConnectivity.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
