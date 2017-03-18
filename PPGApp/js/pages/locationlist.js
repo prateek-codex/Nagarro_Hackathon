@@ -10,6 +10,8 @@ mainApp.LocationIndexView = Backbone.View.extend({
 
         var GetUserBookings = function (position) {
             
+          alert("lat: " + position.coords.latitude);
+          alert("long: " + position.coords.longitude);
             var postData = {
                 Latitude: position.coords.latitude,
                 Longitude: position.coords.longitude,
