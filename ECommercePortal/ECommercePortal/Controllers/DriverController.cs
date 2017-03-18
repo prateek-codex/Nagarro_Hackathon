@@ -5,14 +5,16 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace ECommercePortal.Controllers
+namespace ECommercePortal
 {
     public class DriverController : ApiController
     {
         // GET: api/Driver
-        public IEnumerable<string> Get()
+        public IEnumerable<Location> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new List<Location>() {
+                new Location() { LocationName = "MG Road", Users = new List<User>() { new User() { UserId = "1", PhoneNumber = "9654669109"} }}
+            };
         }
 
         // GET: api/Driver/5
