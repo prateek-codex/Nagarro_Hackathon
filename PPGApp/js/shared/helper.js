@@ -23,7 +23,7 @@
 
         function getLocation(callback) {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(callback, function() {alert("Error")}, {timeout: 5000, enableHighAccuracy: true});
+                navigator.geolocation.getCurrentPosition(callback, function() {alert("Error")});
             } else {
                 alert("Geolocation is not supported by this browser.");
             }
