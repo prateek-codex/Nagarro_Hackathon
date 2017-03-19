@@ -1,12 +1,6 @@
-﻿.topBar .navbar-brand {
-  height: 80px;
-}
-
-.topBar .nav >li >a {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-.topBar .navbar-toggle {
-  padding: 10px;
-  margin: 25px 15px 25px 0;
+﻿#imgFingerPrint {
+    align-content: center;
+    height: 220px;
+    text-align: center;
+    padding-left: 20%;
 }
