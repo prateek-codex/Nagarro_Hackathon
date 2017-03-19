@@ -1,5 +1,7 @@
 "use strict";
 
+var globalCollection = [];
+var globalId = 1;
 window.mainApp = window.mainApp || {};
 mainApp.LocationRouter = Backbone.Router.extend({
     routes: {
@@ -19,9 +21,15 @@ mainApp.LocationRouter = Backbone.Router.extend({
         var view = new mainApp.LocationIndexView({ collection: this.collection });
         var html = view.render().el;
         this.$container.html(html);
+
+        console.log(this.collection)
     },
     users: function (locId) {
-        var view = new mainApp.UserInLocationView({ locationId: locId, locationName: this.collection.toJSON()[parseInt(locId.replace(':', '')) - 1].LocationName });
+        this.collection = globalCollection;
+        // var view = new mainApp.UserInLocationView({ locationId: locId, locationName: this.collection.toJSON()[parseInt(locId.replace(':', '')) - 1].LocationName });
+        var location = this.collection[parseInt(locId.replace(':', '')) - 1];
+        globalId = location.LocationId;
+        var view = new mainApp.UserInLocationView({ locationId: locId, locationName: location.LocationName });
         var html = view.render().el;
         this.$container.html(html);
     }

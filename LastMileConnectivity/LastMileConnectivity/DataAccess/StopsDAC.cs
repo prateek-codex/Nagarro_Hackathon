@@ -8,22 +8,22 @@ using MongoDB.Driver.GeoJsonObjectModel;
 
 namespace LastMileConnectivity
 {
-    public class BookingsDAC
+    public class StopsDAC
     {
         const string connectionString = "mongodb://hackathonvm8955.cloudapp.net:27017";
 
-        public IList<string> GetUserNearToStop(LocationPoint locationPoint)
+        public IList<string> GetNearByStops(LocationPoint locationPoint)
         {
             List<string> stops = new List<string>();
             try
             {
                 MongoClient client = new MongoClient(connectionString);
                 IMongoDatabase mongoDatabase = client.GetDatabase("LastMileConnectivity");
-                var collection = mongoDatabase.GetCollection<BsonDocument>("Bookings");
+                var collection = mongoDatabase.GetCollection<BsonDocument>("Stops");
 
                 var query = //"{'Location': { '$near': [" + locationPoint.Longitude + ", " + locationPoint.Latitude + "], $maxDistance: 0.10 } }";
 
-                 @"{Location: { $near :   {   $geometry: { type: 'Point',  coordinates: [ " + locationPoint.Longitude + ", " + locationPoint.Latitude + " ] },       $minDistance: 0,      $maxDistance: 60      }   }}";
+                 @"{Location: { $near :   {   $geometry: { type: 'Point',  coordinates: [ " + locationPoint.Longitude + ", " + locationPoint.Latitude + " ] },       $minDistance: 0,      $maxDistance: 5000      }   }}";
 
                 var filter = MongoDB.Bson.Serialization.BsonSerializer.Deserialize<BsonDocument>(query);
 
@@ -31,7 +31,7 @@ namespace LastMileConnectivity
 
                 foreach (var document in result)
                 {
-                    stops.Add(document.ToList()[2].Value.ToString());
+                    stops.Add(document.ToList()[1].Value.ToString());
                 }
             }
             catch

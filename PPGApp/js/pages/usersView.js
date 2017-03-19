@@ -8,7 +8,7 @@ mainApp.UserInLocationView = Backbone.View.extend({
     render: function () {
         var self = this;
         debugger
-        $.get(AppConstants.apiUrl + "Driver/" + this.locationId, function (data) {
+        $.get(AppConstants.apiUrl + "Driver/" + globalId, function (data) {
             self.$el.html(
                 self.template({
                     userList: data,

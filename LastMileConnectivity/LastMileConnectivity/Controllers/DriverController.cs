@@ -23,46 +23,29 @@ namespace LastMileConnectivity
         public IList<Booking> Get(string id)
         {
             IList<Booking> bookingList = new List<Booking>();
+            
+            // First fetch the location by Id here.
+            LocationPoint point = new LocationPoint();
 
             switch (id)
             {
-                case "1":
-                    bookingList = new List<Booking>() {
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887825", UserId = "1" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887826", UserId = "2" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887827", UserId = "3" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887828", UserId = "4" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887829", UserId = "5" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887821", UserId = "6" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887822", UserId = "7" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887823", UserId = "8" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887824", UserId = "9" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887825", UserId = "10" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887826", UserId = "11" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887827", UserId = "12" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887828", UserId = "13" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887829", UserId = "14" },
-                         };
-                    break;
                 case "2":
-                default: bookingList = new List<Booking>() {
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887830", UserId = "15" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887826", UserId = "2" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887827", UserId = "3" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887828", UserId = "4" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887829", UserId = "5" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887821", UserId = "6" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887822", UserId = "7" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887823", UserId = "8" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887824", UserId = "9" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887825", UserId = "10" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887826", UserId = "11" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887827", UserId = "12" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887828", UserId = "13" },
-                             new Booking() {MaskedPhoneNumber = "9868XXXXXX", PhoneNumber="9868887829", UserId = "14" },
-                         };
+                    point.Latitude = "28.50141619999999";
+                    point.Longitude = "77.07007799999997";
+                        
+                    break;
+                case "1":
+                    point.Latitude = "28.4796004";
+                    point.Longitude = "77.0798767";
+                    break;
+                case "3":
+                    point.Latitude = "28.5100411";
+                    point.Longitude = "77.07214599999998";
                     break;
             }
+            
+            var index = 0;
+            bookingList = new BookingsDAC().GetUserNearToStop(point).Select(x => new Booking() { PhoneNumber = x, UserId = (++index).ToString() }).ToList();
 
             return bookingList;
         }
@@ -70,17 +53,19 @@ namespace LastMileConnectivity
         // POST: api/Driver
         public List<Location> Post([FromBody]LocationPoint value)
         {
-            //new BookingsDAC().GetNearByUsers(value);
-            return new List<Location>() {
-                     new Location() {
-                         LocationName = "MG Road",
-                         LocationId = "1"
-                     },
-                     new Location() {
-                         LocationName = "Nagarro Plot 14",
-                         LocationId = "2"
-                     }
-            };
+            var index = 0;
+            return new StopsDAC().GetNearByStops(value).Select(x => new Location() { LocationName = x, LocationId = (++index).ToString() }).OrderBy(x => x.LocationName).ToList();
+
+            //return new List<Location>() {
+            //         new Location() {
+            //             LocationName = "MG Road",
+            //             LocationId = "1"
+            //         },
+            //         new Location() {
+            //             LocationName = "Nagarro Plot 14",
+            //             LocationId = "2"
+            //         }
+            //};
         }
 
         // PUT: api/Driver/5

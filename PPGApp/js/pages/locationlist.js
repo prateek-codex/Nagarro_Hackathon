@@ -23,6 +23,7 @@ mainApp.LocationIndexView = Backbone.View.extend({
                 url: AppConstants.apiUrl + "Driver",
                 data: postData,
                 success: function(data) {
+                    globalCollection = data;
                         self.$el.html(
                             self.template({
                                 locationList: data
