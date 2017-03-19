@@ -44,13 +44,13 @@
                     <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
                     <li><a href="#">Video Tutorials</a></li>
                     <li><a href="#">Contact Us</a></li>
-					 <li><a href="#">My Reports</a></li>
+                    <li><a href="#">My Reports</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Preferred Language<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">English</a></li>
-							<li><a href="#">हिंदी </a></li>
-							<li><a href="#">தமிழ்</a></li>
+                            <li><a href="#">हिंदी </a></li>
+                            <li><a href="#">தமிழ்</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -66,22 +66,23 @@
     <script type="text/template" id="locationIndex">
         <div class="col-md-12" id="divTable" style="overflow:auto">
             <% if (_.isEmpty(locationList)){ %>
-            <div class="alert alert-warning">
-                <p>No preferred locations currently. Please try again after sometime.</p>
-            </div>
-            <% } %>
+                <div class="alert alert-warning">
+                    <p>No preferred locations currently. Please try again after sometime.</p>
+                </div>
+                <% } %>
 
-            <table class="table table-hover">
-                <% _.each(locationList, function (location) { %>
-                <tr>
-                    <td>
-                        <a href="#users/:<%= location.LocationId %>" locationName="<%= location.LocationName %>">
-                            <label class="col-form-label" style="font-size:1.7em"><b> <%= location.LocationName %></b></label>
-                        </a>
-                    </td>
-                </tr>
-                <% }); %>
-            </table>
+                    <table class="table table-hover">
+                        <% _.each(locationList, function (location) { %>
+                            <tr>
+                                <td>
+                                    <a href="#users/:<%= location.LocationId %>" locationName="<%= location.LocationName %>">
+                                        <label class="col-form-label" style="font-size:1.7em"><span  class="locationText"><b> <%= location.LocationName %></b></span></label>
+                                    </a>
+                                    <i onclick="speak('<%= location.LocationName %>')" class="fa fa-bullhorn fa-2x pull-right"></i>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </table>
 
         </div>
     </script>
@@ -89,25 +90,26 @@
     <!--Users View-->
     <script type="text/template" id="usersView">
         <% if (_.isEmpty(userList)){ %>
-        <div class="alert alert-warning">
-            <p>There are currently no users in this location.</p>
-        </div>
-        <% } %>
+            <div class="alert alert-warning">
+                <p>There are currently no users in this location.</p>
+            </div>
+            <% } %>
 
-        <div class="col-md-12" id="divTable" style="overflow:auto">
-            <div class="jumbotron">
-                <h1 id="locationHeading"><%= locName %></h1>
-                <% _.each(userList, function (user) { %>
-                <div class="form-group row">
-                    <div class="well-sm">
-                        <i class="fa fa-phone fa-lg"></i><a style="padding-left: 5px;" href="tel:<%= user.PhoneNumber %>">
-                            <label class="col-form-label" style="font-size:1.7em"><b> <%= user.MaskedPhoneNumber %></b></label>
-                        </a>
+                <div class="col-md-12" id="divTable" style="overflow:auto">
+                    <div class="jumbotron">
+                        <h1 id="locationHeading"><%= locName %></h1>
+                        <% _.each(userList, function (user) { %>
+                            <div class="form-group row">
+                                <div class="well-sm">
+                                    <i class="fa fa-phone fa-lg"></i>
+                                    <a style="padding-left: 5px;" href="tel:<%= user.PhoneNumber %>">
+                                        <label class="col-form-label" style="font-size:1.7em"><b> <%= user.MaskedPhoneNumber %></b></label>
+                                    </a>
+                                </div>
+                            </div>
+                            <% }); %>
                     </div>
                 </div>
-                <% }); %>
-            </div>
-        </div>
     </script>
 
     <div class="container text-center">
@@ -171,17 +173,20 @@
     <script src="js/models/location-model.js"></script>
     <script src="js/pages/locationlist.js"></script>
     <script src="js/pages/usersView.js"></script>
+    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
 
 
 </body>
 
 <script>
-
     var app = new mainApp.LocationRouter();
+        var speak = function(text) {
+        responsiveVoice.speak(text);
+        return false
+    }
 </script>
 
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAD0LoEKBWSsMkmHIHtXhfET8NgZDGVNoA">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAD0LoEKBWSsMkmHIHtXhfET8NgZDGVNoA">
 </script>
 
 </html>
