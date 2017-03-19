@@ -21,9 +21,9 @@
   };
 }());
 
-        function getLocation(callback) {
+        function getLocation(callback, errorCallback) {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(callback, function() {alert("Error")});
+                navigator.geolocation.getCurrentPosition(callback, errorCallback);
             } else {
                 alert("Geolocation is not supported by this browser.");
             }

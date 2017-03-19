@@ -33,7 +33,11 @@ mainApp.LocationIndexView = Backbone.View.extend({
             });
         }
 
-        getLocation(GetUserBookings);
+        var DefaultBookings = function () {
+            GetUserBookings({coords: { latitude: "28.4796004", longitude: "77.0798767"}})
+        }
+
+        getLocation(GetUserBookings, DefaultBookings);
 
         // $.get(AppConstants.apiUrl + "Driver/" + this.locationId, 
         // });
