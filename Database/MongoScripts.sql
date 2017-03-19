@@ -55,4 +55,8 @@ db.Bookings.insert( {"UserId" : 8, "PhoneNumber": 8986634909, "Location" : [77.0
 db.Bookings.insert( {"UserId" : 11, "PhoneNumber": 8453454909, "Location" : [77.0707799999997,28.50131619999999], "DestLocation" : [ -77.07, 28.49 ]})
 db.Bookings.insert( {"UserId" : 12, "PhoneNumber": 8724234909, "Location" : [77.07007799999997,28.50121619999999], "DestLocation" : [ -77.07, 28.49 ]})
 
-db.Bookings.insert( {"UserId" : 12, "PhoneNumber": 8724234909, "Location" : [77.07214599999998,28.5100411], "DestLocation" : [ -77.07, 28.49 ]})
+db.Bookings.insert( {"UserId" : 14, "PhoneNumber": 7724234909, "Location" : [77.07211599999998,28.5100411], "DestLocation" : [ -77.07, 28.49 ]})
+db.Bookings.insert( {"UserId" : 13, "PhoneNumber": 7724234909, "Location" : [77.07212599999998,28.5100411], "DestLocation" : [ -77.07, 28.49 ]})
+db.Bookings.insert( {"UserId" : 15, "PhoneNumber": 7724234909, "Location" : [77.07213599999998,28.5100411], "DestLocation" : [ -77.07, 28.49 ]})
+db.Bookings.insert( {"UserId" : 16, "PhoneNumber": 7724234909, "Location" : [77.07214599999998,28.5100411], "DestLocation" : [ -77.07, 28.49 ]})
+db.Bookings.insert( {"UserId" : 17, "PhoneNumber": 7724234909, "Location" : [77.07215599999998,28.5100411], "DestLocation" : [ -77.07, 28.49 ]})
