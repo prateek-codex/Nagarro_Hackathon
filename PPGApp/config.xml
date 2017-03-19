@@ -3,10 +3,10 @@
         xmlns:gap="http://phonegap.com/ns/1.0"
         id="com.wilderminds.samplephonegap"
         version="1.0.0">
-  <name>FlickCart</name>
+  <name>Last Mile Connectivity</name>
 
   <description>
-    This is an example phone gap project.
+    This is an app for last mile connectivity for Jangid motors.
   </description>
 
   <author href="https://wilderminds.com"
