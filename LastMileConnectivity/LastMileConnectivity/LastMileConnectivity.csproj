@@ -123,6 +123,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DriverController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="DataAccess\BookingsDAC.cs" />
     <Compile Include="DataAccess\DBSchema.cs" />
     <Compile Include="DataAccess\StopsDAC.cs" />
@@ -130,6 +131,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\GeolocationHelper.cs" />
+    <Compile Include="Integration\AadharIntegration.cs" />
+    <Compile Include="Integration\UPIIntegration.cs" />
+    <Compile Include="Logic\PriceCalculationLogic.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

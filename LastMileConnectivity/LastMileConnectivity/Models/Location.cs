@@ -33,4 +33,13 @@ namespace LastMileConnectivity
         public string Latitude { get; set; }
         public string Longitude { get; set; }
     }
+
+    public class UserPayment
+    {
+        public string UserId { get; set; }
+        public string UAIDI { get; set; }
+        public double Distance { get; set; }
+        public double BillAmount { get; set; }
+        public double TimeInMinutes { get; set; }
+    }
 }
