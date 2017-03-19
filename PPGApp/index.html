@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FlickCart</title>
+    <title>Last Mile Connectivity</title>
     <link href="css/lib/bootstrap.css" rel="stylesheet" />
     <link href="css/app.css" rel="stylesheet" />
     <link href="css/app.responsive.css" rel="stylesheet" />
@@ -14,32 +14,41 @@
 
 
 <body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header" style="height:100px;">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="padding:0px;">
+                    <img src="img/jangid.jpg" width="100" height="100" />
+                </a>
+            </div>
 
-    <div class="container">
-        <div class="row" style="margin-top:20px">
-            <div class="col-md-4" style="display:inline">
-                <img class="img-responsive logo" src="./img/jangid.jpg" alt="Jangid Motors" style="height:60px">
-            </div>
-            <div class="col-md-8 text-right">
-                <h1 class="heading">Jangid Motors</h1>
-                <h3>Last Mile connectivety</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <hr class="horizontalRule" />
-            </div>
-        </div>
-
-        <div class="row">
-            <div class=" col-md-12" id="bs-example-navbar-collapse-1">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Video Tutorials</a></li>
                     <li><a href="#">Contact Us</a></li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Profile<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">My Reports</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
+            <!-- /.navbar-collapse -->
         </div>
-    </div>
+        <!-- /.container-fluid -->
+    </nav>
 
     <div class="container" id="primary-content">
         <!-- the container that gets populated with the rendered templates -->
@@ -54,15 +63,18 @@
             </div>
             <% } %>
 
-            <% _.each(locationList, function (location) { %>
-            <div class="form-group row">
-                <div class="jumbotron">
-                    <a href="#users/:<%= location.LocationId %>" locationName="<%= location.LocationName %>">
-                        <label class="col-form-label" style="font-size:1.7em"><b> <%= location.LocationName %></b></label>
-                    </a>
-                </div>
-            </div>
-            <% }); %>
+            <table class="table table-hover">
+                <% _.each(locationList, function (location) { %>
+                <tr>
+                    <td>
+                        <a href="#users/:<%= location.LocationId %>" locationName="<%= location.LocationName %>">
+                            <label class="col-form-label" style="font-size:1.7em"><b> <%= location.LocationName %></b></label>
+                        </a>
+                    </td>
+                </tr>
+                <% }); %>
+            </table>
+
         </div>
     </script>
 
@@ -90,11 +102,49 @@
         </div>
     </script>
 
-    <div class="container">
+    <div class="container text-center">
         <div class="col-md-12 ">
-            <img class="img-responsive logo" src="./img/FingurePrint.jpg" alt="Jangid Motors" style="height:220px">
+            <img id="imgFingerPrint" class="img-responsive logo" src="./img/FingurePrint.jpg" alt="Jangid Motors" style="height:220px">
         </div>
     </div>
+
+    <div class="modal fade" id="startRideModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ride Started</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Your ride has been started, hope you have a great journey.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="endRideModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ride Completed</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Your ride has been completed, Following is trip summary.</p>
+                    <ul>
+                        <li>20 Rs</li>
+                        <li>Distance Travelled : 4.56 km</li>
+                        <li>Time Taken : 11 mins</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!--Libray Files-->
     <script src="js/lib/jquery-3.1.1.min.js"></script>
@@ -113,17 +163,17 @@
     <script src="js/models/location-model.js"></script>
     <script src="js/pages/locationlist.js"></script>
     <script src="js/pages/usersView.js"></script>
-    
-    
+
+
 </body>
 
 <script>
 
-        var app = new mainApp.LocationRouter();
+    var app = new mainApp.LocationRouter();
 </script>
 
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAD0LoEKBWSsMkmHIHtXhfET8NgZDGVNoA">
-    </script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAD0LoEKBWSsMkmHIHtXhfET8NgZDGVNoA">
+</script>
 
 </html>
